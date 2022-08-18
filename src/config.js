@@ -1,0 +1,1 @@
+export const IMDB_API_KEY = 'k_oa37h4t3_' //k_i2g6jcpp
