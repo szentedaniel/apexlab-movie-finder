@@ -1,32 +1,13 @@
-import { useEffect, useMemo, useState } from 'react'
-import { Backdrop, Box, CircularProgress, createTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material'
+import { useMemo, useState } from 'react'
+import { Backdrop, CircularProgress, createTheme, CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material'
 import SearchBar from './components/SearchBar'
 import Home from './pages/Home'
 import MoviesPage from './pages/MoviesPage'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { LoadingContext } from './contexts/LoadingContext'
 import { ColorModeContext } from './contexts/ColorModeContext'
-import { makeStyles } from '@mui/styles'
 import MovieDetails from './pages/MovieDetails'
 import SimilarMovies from './pages/SimilarMovies'
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    "&::-webkit-scrollbar": {
-      width: 7,
-    },
-    "&::-webkit-scrollbar-track": {
-      boxShadow: `inset 0 0 6px rgba(0, 0, 0, 0.3)`,
-    },
-    "&::-webkit-scrollbar-thumb": {
-      backgroundColor: "darkgrey",
-      outline: `1px solid slategrey`,
-    },
-  },
-}));
-
-
 
 function App({ client }) {
 
@@ -34,7 +15,6 @@ function App({ client }) {
   const [mode, setMode] = useState(useMediaQuery('(prefers-color-scheme: dark)'));
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
-  const classes = useStyles();
 
   const colorMode = useMemo(
     () => ({

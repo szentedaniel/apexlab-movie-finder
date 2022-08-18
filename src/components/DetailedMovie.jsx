@@ -4,8 +4,11 @@ import { Link } from 'react-router-dom'
 import Categories from './Categories'
 import Score from './Score'
 import Trending from './Trending'
+import { useViewportSize } from '@mantine/hooks';
 
 export default function DetailedMovie({ movie, IMDbResult, wikiContent }) {
+  const { height, width } = useViewportSize();
+
   const [imdbUrl, setImdbUrl] = useState()
   const [wikiUrl, setWikiUrl] = useState()
 
@@ -47,7 +50,7 @@ export default function DetailedMovie({ movie, IMDbResult, wikiContent }) {
             <Score score={movie.score} />
             {/* <Trending value={movie.popularity} /> */}
           </Stack>
-          <Stack direction='row' marginBottom='1em' sx={{ '& a': { m: 1 } }}>
+          <Stack direction={(width > 600) ? 'row' : 'column'} marginBottom='1em' sx={{ '& a': { m: 1 }, }}>
             <Button variant='contained' disabled={(wikiUrl) ? false : true} href={(wikiUrl) ? wikiUrl : '/#'} target={(wikiUrl) ? '_blank' : ''} style={{ backgroundColor: `${wikiUrl ? '#FFFFFF' : '#bbbbbb'}` }} >Wikipedia</Button>
             <Button variant='contained' disabled={imdbUrl ? false : true} href={imdbUrl ? imdbUrl : '/#'} target={imdbUrl ? '_blank' : ''} style={{ backgroundColor: `${imdbUrl ? '#E2B616' : '#6d580e'}` }} >IMDb</Button>
             <Link to={{ pathname: `/similar`, search: `?id=${movie.id}` }}>
