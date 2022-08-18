@@ -23,7 +23,7 @@ export default function Movie({ movie }) {
                   </Typography>
                 </Link>
               </Typography>
-              <Typography component='span'>{moment(movie.relaseDate).format("YYYY-MM-DD")}</Typography>
+              <Typography component='span'>{moment(movie.releaseDate).format("YYYY-MM-DD")}</Typography>
             </Box>
 
             <Score score={movie.score} />
