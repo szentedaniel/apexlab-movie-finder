@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Categories from './Categories'
 import Score from './Score'
-import Trending from './Trending'
 import { useViewportSize } from '@mantine/hooks';
 
 export default function DetailedMovie({ movie, IMDbResult, wikiContent }) {
@@ -19,7 +18,7 @@ export default function DetailedMovie({ movie, IMDbResult, wikiContent }) {
       setImdbUrl(`https://www.imdb.com/title/${IMDbResult.id}/`)
       if (wikiContent) {
         setWikiUrl(wikiContent.url)
-        console.log(wikiContent);
+        // console.log(wikiContent);
       }
     }
   }, [])
@@ -51,10 +50,10 @@ export default function DetailedMovie({ movie, IMDbResult, wikiContent }) {
             {/* <Trending value={movie.popularity} /> */}
           </Stack>
           <Stack direction={(width > 600) ? 'row' : 'column'} marginBottom='1em' sx={{ '& a': { m: 1 }, }}>
-            <Button variant='contained' disabled={(wikiUrl) ? false : true} href={(wikiUrl) ? wikiUrl : '/#'} target={(wikiUrl) ? '_blank' : ''} style={{ backgroundColor: `${wikiUrl ? '#FFFFFF' : '#bbbbbb'}` }} >Wikipedia</Button>
-            <Button variant='contained' disabled={imdbUrl ? false : true} href={imdbUrl ? imdbUrl : '/#'} target={imdbUrl ? '_blank' : ''} style={{ backgroundColor: `${imdbUrl ? '#E2B616' : '#6d580e'}` }} >IMDb</Button>
+            <Button variant='contained' disabled={(wikiUrl) ? false : true} href={(wikiUrl) ? wikiUrl : '/#'} target={(wikiUrl) ? '_blank' : ''} style={{ backgroundColor: `${wikiUrl ? '#FFFFFF' : '#bbbbbb'}`, color: '#000000' }} >Wikipedia</Button>
+            <Button variant='contained' disabled={imdbUrl ? false : true} href={imdbUrl ? imdbUrl : '/#'} target={imdbUrl ? '_blank' : ''} style={{ backgroundColor: `${imdbUrl ? '#E2B616' : '#6d580e'}`, color: '#000000' }} >IMDb</Button>
             <Link to={{ pathname: `/similar`, search: `?id=${movie.id}` }}>
-              <Button variant='contained' target={imdbUrl ? '_blank' : ''} >Similar movies</Button>
+              <Button variant='contained' target={imdbUrl ? '_blank' : ''} >Related</Button>
             </Link>
           </Stack>
           <Categories movie={movie} />
@@ -64,7 +63,7 @@ export default function DetailedMovie({ movie, IMDbResult, wikiContent }) {
       <>
         {
           wikiContent ? (
-            <Box component='div' marginTop='4em'>
+            <Box component='div' marginY='4em'>
               <Typography component='div' variant='body1'>
                 {wikiContent.plotShort.plainText}
               </Typography>

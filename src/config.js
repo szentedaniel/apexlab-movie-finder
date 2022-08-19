@@ -1,1 +1,1 @@
-export const IMDB_API_KEY = 'k_oa37h4t3_' //k_i2g6jcpp
+export const IMDB_API_KEY = 'k_i2g6jcpp' //  k_oa37h4t3 <- use this if api quota exceeded

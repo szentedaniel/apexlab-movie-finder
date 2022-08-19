@@ -1,6 +1,6 @@
-import { Stack } from '@mui/material';
 import React from 'react'
 import Movie from './Movie'
+import { Stack } from '@mui/material'
 
 export default function Movies({ movies }) {
   return (

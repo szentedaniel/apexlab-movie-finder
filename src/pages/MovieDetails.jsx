@@ -80,6 +80,7 @@ export default function MovieDetails() {
       setDoneWithFetching(true)
     })
 
+    // // FOR TESTING WITHOUT API
     // setTimeout(() => {
     //   setIMDbResult(SAMPLE_IMDB)
     //   setTimeout(() => {
@@ -106,19 +107,17 @@ export default function MovieDetails() {
   }, [data])
 
   useEffect(() => {
-    if (loading != undefined) {
+    if (loading !== undefined) {
       if (!apiLoading) {
         setLoading(loading)
-        // console.log(`from loading_gql effect\ngpl:${loading}\napi:${apiLoading}`);
       }
     }
   }, [loading])
 
   useEffect(() => {
-    if (apiLoading != undefined) {
+    if (apiLoading !== undefined) {
       if (!loading) {
         setLoading(apiLoading)
-        // console.log(`from apiLoading effect\ngpl:${loading}\napi:${apiLoading}`);
       }
     }
   }, [apiLoading])
@@ -130,7 +129,6 @@ export default function MovieDetails() {
   }, [error])
 
   useEffect(() => {
-    // console.log(movie);
     if (movie) {
       getContentFromWikipedia(movie.movie.name)
     }

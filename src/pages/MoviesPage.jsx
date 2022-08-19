@@ -1,7 +1,6 @@
 import { useLazyQuery } from '@apollo/client';
 import { Typography } from '@mui/material';
 import React, { useContext, useEffect } from 'react'
-import { useParams } from 'react-router'
 import { useSearchParams } from 'react-router-dom';
 import Movies from '../components/Movies'
 import { LoadingContext } from '../contexts/LoadingContext';

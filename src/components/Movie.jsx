@@ -1,10 +1,9 @@
 import React from 'react'
-import { Box, Card, CardContent, Chip, Stack, Typography } from '@mui/material';
-import { stringToColour } from '../utils';
-import moment from 'moment/moment';
-import { Link } from 'react-router-dom';
-import Score from './Score';
-import Categories from './Categories';
+import { Box, Card, CardContent, Stack, Typography } from '@mui/material'
+import moment from 'moment/moment'
+import { Link } from 'react-router-dom'
+import Score from './Score'
+import Categories from './Categories'
 
 
 export default function Movie({ movie }) {

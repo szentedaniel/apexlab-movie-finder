@@ -1,13 +1,12 @@
 import { useLazyQuery } from '@apollo/client'
-import React, { useContext, useEffect, useState } from 'react'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import React, { useContext, useEffect } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import Movies from '../components/Movies'
 import { GET_SIMILAR_FROM_ID } from '../graphql'
 import { LoadingContext } from '../contexts/LoadingContext';
 import { Typography } from '@mui/material'
 
 export default function SimilarMovies() {
-  // const location = useLocation()
   const [params] = useSearchParams()
   const movie_id = params.get('id')
 
@@ -35,16 +34,16 @@ export default function SimilarMovies() {
 
   return (
     <>
-      {/* {data &&
+      {data &&
         <Typography variant='h3' marginBottom='0.25em'>
-          {`Found ${data.searchMovies.length} similar movie for "${data.movie.name}"`}
+          {`Found ${data.movie.similar.length} related(similar) movie for "${data.movie.name}"`}
         </Typography>
       }
       {(!loading && !data) &&
         <Typography variant='h3' marginBottom='0.25em'>
-          {`Not found similar movie for "${data.movie.name}"`}
+          {`Not found related(similar) movie`}
         </Typography>
-      } */}
+      }
       {data &&
         <Movies movies={data.movie.similar} />
       }
